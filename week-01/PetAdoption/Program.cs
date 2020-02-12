@@ -15,7 +15,7 @@ namespace PetAdoption
 
         Console.WriteLine("Current Pets");
         Console.WriteLine($"There are {shelter.Count} pets.");
-        for (var i = 0; i <= shelter.Count; i++)
+        for (var i = 0; i < shelter.Count; i++)
         {
           var currentPet = shelter[i];
           Console.WriteLine($"{i} : {currentPet}");
@@ -23,7 +23,6 @@ namespace PetAdoption
 
         Console.WriteLine("What pet do you want to add?");
         var pet = Console.ReadLine();
-
         shelter.Add(pet);
       }
 
