@@ -5,9 +5,6 @@ namespace DeckShuffler
 {
   class Program
   {
-
-
-
     static void Main(string[] args)
     {
       var suits = new List<string>() { "clubs", "spades", "hearts", "diamonds" };
@@ -28,11 +25,23 @@ namespace DeckShuffler
         deck[i] = temp;
       }
 
-      for (int i = 0; i < deck.Count; i++)
-      {
-        Console.WriteLine($"{deck[i]}");
-      }
+      Console.WriteLine($"The first card is {deck[0]}");
 
+      // remvoe it from the the deck
+      deck.RemoveAt(0);
+
+      string input = "";
+      while (input == "" && deck.Count > 0)
+      {
+        Console.WriteLine("hit enter...... you want to see the next card?");
+        input = Console.ReadLine().ToLower();
+        if (input == "")
+        {
+          Console.WriteLine($"The first card is {deck[0]}");
+          deck.RemoveAt(0);
+        }
+
+      }
 
     }
   }
