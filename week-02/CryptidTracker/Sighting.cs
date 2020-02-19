@@ -1,10 +1,10 @@
-
+﻿
 
 using System;
 
 namespace CryptidTracker
 {
-  public class Sightings
+  public class Sighting
   {
     // WhatISaw
     public string WhatISaw { get; set; }
