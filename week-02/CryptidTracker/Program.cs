@@ -21,7 +21,7 @@ namespace CryptidTracker
         }
 
         Console.WriteLine("What would you like to do?");
-        Console.WriteLine("(ADD) or (QUIT)");
+        Console.WriteLine("(ADD), (REMOVE) or (QUIT)");
         var input = Console.ReadLine().ToLower();
         if (input == "add")
         {
@@ -31,6 +31,12 @@ namespace CryptidTracker
           var where = Console.ReadLine();
 
           tracker.AddANewSighting(where, what);
+        }
+        else if (input == "remove")
+        {
+          Console.WriteLine("what do you want remove");
+          var creature = Console.ReadLine();
+          tracker.RemoveSighting(creature);
         }
         else if (input == "quit")
         {

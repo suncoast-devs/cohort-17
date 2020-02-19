@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CryptidTracker
 {
@@ -22,5 +23,16 @@ namespace CryptidTracker
 
       Sightings.Add(sighting);
     }
+
+    public void RemoveSighting(string what)
+    {
+      // var thingToRemove = Sightings.Where(sighting => sighting.WhatISaw == what);
+      // foreach (var thing in thingToRemove)
+      // {
+      //   Sightings.Remove(thing);
+      // }
+      Sightings.RemoveAll(sighting => sighting.WhatISaw == what);
+    }
+
   }
 }
