@@ -26,6 +26,10 @@ namespace DinoReview
       var newPen = Console.ReadLine();
       zoo.Transfer(dino, newPen);
 
+
+      zoo.GetThreeHeaviest();
+
+      zoo.DisplayDietSummary();
     }
   }
 }
