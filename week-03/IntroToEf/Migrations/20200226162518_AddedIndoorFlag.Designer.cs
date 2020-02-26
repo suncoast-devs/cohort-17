@@ -3,15 +3,17 @@ using System;
 using IntroToEf;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace IntroToEf.Migrations
 {
     [DbContext(typeof(KittyCatContext))]
-    partial class KittyCatContextModelSnapshot : ModelSnapshot
+    [Migration("20200226162518_AddedIndoorFlag")]
+    partial class AddedIndoorFlag
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

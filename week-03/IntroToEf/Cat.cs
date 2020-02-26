@@ -9,5 +9,6 @@ namespace IntroToEf
     public DateTime Birthday { get; set; }
     public string FurColor { get; set; }
     public bool IsFriendly { get; set; } = false;
+    public bool IsIndoor { get; set; } = true;
   }
 }
