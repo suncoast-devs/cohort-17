@@ -27,10 +27,15 @@ namespace TacoTruck.Controllers
     }
 
     [HttpGet("{id}")]
-    public MenuItem GetOneMenuItem(int id)
+    public ActionResult<MenuItem> GetOneMenuItem(int id)
     {
       var item = db.MenuItems.FirstOrDefault(i => i.Id == id);
-      return item;
+      if (item == null)
+      {
+        return NotFound();
+      }
+      return Ok(item);
+
 
     }
 
