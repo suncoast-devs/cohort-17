@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TacoTruck.Models
 {
   public class MenuItem
@@ -8,5 +10,7 @@ namespace TacoTruck.Models
     public int Calories { get; set; }
     public string Protein { get; set; }
     public string Description { get; set; }
+
+    public List<TruckMenu> TruckMenus { get; set; } = new List<TruckMenu>();
   }
 }

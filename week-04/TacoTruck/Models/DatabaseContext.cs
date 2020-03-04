@@ -9,6 +9,7 @@ namespace TacoTruck.Models
   {
 
     public DbSet<MenuItem> MenuItems { get; set; }
+    public DbSet<Truck> Trucks { get; set; }
 
     private string ConvertPostConnectionToConnectionString(string connection)
     {
