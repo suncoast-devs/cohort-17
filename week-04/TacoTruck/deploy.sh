@@ -1,7 +1,7 @@
-docker build -t sdg-sample-api-template .
+docker build -t sdg-taco-image .
 
-docker tag sdg-sample-api-template registry.heroku.com/sdg-sample-api-template/web
+docker tag sdg-taco-image registry.heroku.com/sdg-taco-truck/web
 
-docker push registry.heroku.com/sdg-sample-api-template/web
+docker push registry.heroku.com/sdg-taco-truck/web
 
-heroku container:release web -a sdg-sample-api-template
+heroku container:release web -a sdg-taco-truck
