@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,25 +32,41 @@ namespace SlackQueue.Controllers
       };
       await db.QueueItems.AddAsync(item);
       await db.SaveChangesAsync();
+      // also send a message to mark
+      var token = "XXXXXX";
+      var url = $"https://slack.com/api/chat.postMessage?token={token}&channel=U7M17M55J&text={user_name} was added the queue&pretty=1";
+
+      var client = new HttpClient();
+      await client.PostAsync(url, new StringContent(""));
+
       return Ok(new { text = $"{user_name} was added at {item.CreatedAt}" });
     }
 
     [HttpPost("next")]
-    public async Task<ActionResult> GetNextPerson()
+    public async Task<ActionResult> GetNextPerson([FromForm] string user_id)
     {
-      var next = await db.QueueItems.FirstOrDefaultAsync();
-      if (next == null)
+      if (user_id == "U7M17M55J")
       {
-        return Ok(new { text = "Queue is empty! Good job!" });
+        var next = await db.QueueItems.FirstOrDefaultAsync();
+        if (next == null)
+        {
+          return Ok(new { text = $"Queue is empty! Good job! : {user_id}" });
+        }
+        else
+        {
+          // remove the next person
+          db.Remove(next);
+          // return the next person
+          await db.SaveChangesAsync();
+          return Ok(new { text = $"{next.Who} is next! : {user_id}" });
+        }
       }
       else
       {
-        // remove the next person
-        db.Remove(next);
-        // return the next person
-        await db.SaveChangesAsync();
-        return Ok(new { text = $"{next.Who} is next!" });
+        return Ok(new { text = $"Sorry, you are not allowed to do that." });
+
       }
+
     }
 
     [HttpPost("view")]
