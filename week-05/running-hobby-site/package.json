@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "hello-html",
+  "name": "running-hobby-site",
   "scripts": {
     "start": "browser-sync start --server public --files public",
     "deploy": "netlify deploy --prod --dir=public",
     "setup-deploy": "app-app --deploy && yarn deploy",
-    "postdeploy": "echo 'Your site was deployed to https://hello-html-markdewey.netlify.com'"
+    "postdeploy": "echo 'Your site was deployed to https://running-hobby-site-markdewey.netlify.com'"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -21,5 +21,5 @@
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0"
   },
-  "homepage": "https://hello-html-markdewey.netlify.com"
+  "homepage": "https://running-hobby-site-markdewey.netlify.com"
 }
