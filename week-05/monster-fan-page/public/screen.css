@@ -1,0 +1,33 @@
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #D9C6B0;
+  text-align: center;
+  /* background-color: green; */
+  /* background-color: rgb(123, 33, 51); */
+  /* background-color: hsla(350, 95%, 48%, 0.75); */
+}
+
+h1 {
+  /* text-align: center; */
+  color: #BF4C41;
+}
+
+h2 {
+  /* text-align: center; */
+  color: #F2CF8D;
+  background-color: #555954;
+  padding: 1rem;
+}
+
+p {
+  text-align: left;
+}
