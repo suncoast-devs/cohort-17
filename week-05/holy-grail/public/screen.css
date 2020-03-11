@@ -9,8 +9,9 @@ html {
 body {
   margin: 0;
   height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 20% 70% 10%;
 }
 
 * {
@@ -19,12 +20,31 @@ body {
 }
 
 header.page-header, footer {
+  grid-column-start: 1;
+  grid-column-end: 4;
   background-color: aqua;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
-  border: 0.5rem solid black;
   font-size: 3rem;
+}
+
+header {}
+
+.page-header {}
+
+header.page-header {
+  border-top: 0.5rem solid black;
+  border-left: 0.5rem solid black;
+  border-right: 0.5rem solid black;
+  border-bottom: 0.25rem solid black;
+}
+
+footer {
+  border-top: 0.25rem solid black;
+  border-left: 0.5rem solid black;
+  border-right: 0.5rem solid black;
+  border-bottom: 0.5rem solid black;
 }
 
 main {
@@ -34,7 +54,7 @@ main {
 }
 
 aside {
-  background-color: salmon;
+  background-color: coral;
   text-transform: uppercase;
   flex-basis: 25%;
   border: 0.25rem solid black;

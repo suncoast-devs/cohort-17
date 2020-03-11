@@ -3,8 +3,9 @@
   "name": "monster-fan-page",
   "scripts": {
     "start": "browser-sync start --server public --files public",
-    "deploy": "echo 'To setup deployment run: yarn setup-deploy'",
-    "setup-deploy": "app-app --deploy && yarn deploy"
+    "deploy": "netlify deploy --prod --dir=public",
+    "setup-deploy": "app-app --deploy && yarn deploy",
+    "postdeploy": "echo 'Your site was deployed to https://monster-fan-page-markdewey.netlify.com'"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -19,5 +20,6 @@
     "prettier": "^1.19.1",
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0"
-  }
+  },
+  "homepage": "https://monster-fan-page-markdewey.netlify.com"
 }
