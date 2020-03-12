@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300|Roboto+Mono|Roboto:900&display=swap');
 :root {
   font: 16px / 1 sans-serif;
+  --text-color: rgba(80, 81, 79, 1);
 }
 
 html {
@@ -9,4 +11,43 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: rgba(255, 224, 102, 1);
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav>ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li {
+  padding: 1rem;
+}
+
+.hero {
+  background-image: url("./images/downtown.jpg");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  color: rgba(36, 123, 160, 1);
+  font-size: 2rem;
+  background-image: linear-gradient(rgba(248, 224, 103, 0.8), rgba(237, 95, 92, 0.8));
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
 }
