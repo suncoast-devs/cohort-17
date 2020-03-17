@@ -39,3 +39,15 @@ main>section {
   border-radius: 0.5rem;
   padding: 1.5rem;
 }
+
+.winner {
+  background-color: green;
+  color: white;
+  padding: 5rem;
+}
+
+.loser {
+  background-color: tomato;
+  color: teal;
+  padding: 5rem;
+}

@@ -12,6 +12,8 @@ const playerSelectedRock = () => {
     console.log('rock beats scissors')
     document.querySelector('.game-result').textContent =
       'Rock beats scissors, player wins'
+    document.querySelector('.game-result').classList.toggle('winner')
+    document.querySelector('.game-result').classList.remove('loser')
   } else if (cpuPick === 'rock') {
     console.log('tied')
     document.querySelector('.game-result').textContent =
@@ -20,6 +22,8 @@ const playerSelectedRock = () => {
     console.log('paper beats rock, cpu wins')
     document.querySelector('.game-result').textContent =
       'Paper beats rocks, cpu wins'
+    document.querySelector('.game-result').classList.add('loser')
+    document.querySelector('.game-result').classList.remove('winner')
   }
 
   // display the player selection
