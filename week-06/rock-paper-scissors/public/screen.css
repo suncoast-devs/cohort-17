@@ -1,0 +1,41 @@
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: rgb(155, 248, 248);
+  padding-top: 4rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  height: 30vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+main>section {
+  font-size: 4rem;
+}
+
+.player-selection-buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player-selection-buttons button {
+  font-size: 4rem;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
