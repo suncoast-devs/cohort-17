@@ -48,7 +48,7 @@ export class Team extends Component {
               <h2 class="team-1-name">{this.state.teamName}</h2>
               <p class="team-1-score">{this.state.teamScore}</p>
             </section>
-            <section>
+            <section style={{ backgroundColor: `team-${this.state.teamName}` }}>
               <section>
                 update team 1 name
                 <input

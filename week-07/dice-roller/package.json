@@ -1,15 +1,14 @@
 {
   "private": true,
-  "name": "scoreboard-react",
+  "name": "dice-roller",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "react-scripts build",
-    "deploy": "netlify deploy --prod --dir=build",
+    "deploy": "echo 'To setup deployment run: yarn setup-deploy'",
     "setup-deploy": "app-app --deploy && yarn deploy",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postdeploy": "echo 'Your site was deployed to https://scoreboard-react-markdewey.netlify.com'"
+    "eject": "react-scripts eject"
   },
   "browserslist": [
     ">0.2%",
@@ -25,15 +24,14 @@
     "useTabs": false
   },
   "devDependencies": {
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.1",
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0"
   },
   "dependencies": {
     "json": "^9.0.6",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "^3.4.0"
-  },
-  "homepage": "https://scoreboard-react-markdewey.netlify.com"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1"
+  }
 }
