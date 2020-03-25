@@ -6,7 +6,7 @@ import HomePage from './components/HomePage'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
 import BlogPage from './components/BlogPage'
-
+import UserProfile from './components/UserProfile'
 const App = () => {
   return (
     <BrowserRouter>
@@ -33,6 +33,7 @@ const App = () => {
         <Route exact path="/about" component={AboutUs} />
         <Route exact path="/contact" component={ContactUs} />
         <Route exact path="/blog" component={BlogPage} />
+        <Route exact path="/user/:username/" component={UserProfile} />
       </Switch>
     </BrowserRouter>
   )
