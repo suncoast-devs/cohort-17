@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import axios from 'axios'
 const AddEmployeePage = () => {
   // state ={
   //   firstNameInputField:''
@@ -29,13 +29,22 @@ const AddEmployeePage = () => {
     })
   }
 
+  const sendEmployeeToApi = async e => {
+    e.preventDefault()
+    const resp = await axios.post(
+      'https://sdg-staff-directory-app.herokuapp.com/api/honeydukes/Employees',
+      employee
+    )
+    console.log(resp)
+  }
+
   return (
     <>
       <div>
         <header>Hire a new Employee</header>
       </div>
       <main>
-        <form>
+        <form onSubmit={sendEmployeeToApi}>
           <section>
             <p>First Name</p>
             {/*  onChange={firstNameChangedEvent} */}
@@ -62,6 +71,7 @@ const AddEmployeePage = () => {
               onChange={handleInputChange}
             />
           </section>
+          <button>Add employee</button>
         </form>
       </main>
     </>
