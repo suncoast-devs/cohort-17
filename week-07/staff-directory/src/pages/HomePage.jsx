@@ -48,6 +48,7 @@ const HomePage = props => {
             return (
               <Employee
                 key={employee.id}
+                id={employee.id}
                 fullName={`${employee.firstName} ${employee.lastName}`}
                 jobTitle={employee.jobTitle}
               />
