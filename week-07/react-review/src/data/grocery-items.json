@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Eggs",
+    "quantity": 1
+  },
+  {
+    "name": "Milk",
+    "quantity": 4
+  },
+  {
+    "name": "Cookie Dough",
+    "quantity": 12
+  },
+  {
+    "name": "Pop tarts",
+    "quantity": 3
+  },
+  {
+    "name": "chicken wings",
+    "quantity": 12
+  }
+]
