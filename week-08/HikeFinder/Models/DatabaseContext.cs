@@ -8,7 +8,7 @@ namespace HikeFinder.Models
   public partial class DatabaseContext : DbContext
   {
 
-
+    public DbSet<Trail> Trails { get; set; }
 
 
     private string ConvertPostConnectionToConnectionString(string connection)

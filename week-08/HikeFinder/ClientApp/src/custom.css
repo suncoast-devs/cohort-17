@@ -32,3 +32,22 @@ main.hero {
   text-transform: uppercase;
   border: 0.1rem solid rgb(60, 146, 137);
 }
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-container input {
+  width: 50%;
+  margin-right: 1rem;
+}
+
+.no-results-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  color: slategrey;
+}

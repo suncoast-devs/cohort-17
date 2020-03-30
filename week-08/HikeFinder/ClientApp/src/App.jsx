@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router'
 import { Layout } from './components/Layout'
 import { Home } from './pages/Home'
-import HelloWorld from './pages/_template/HelloWorld'
-import HeyWorld from './pages/_template/HeyWorld'
+import Search from './pages/Search'
 import NotFound from './pages/NotFound'
+import AddTrail from './pages/AddTrail'
 import './custom.css'
 
 export default class App extends Component {
@@ -15,8 +15,8 @@ export default class App extends Component {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/counter" component={HelloWorld} />
-          <Route exact path="/typescript" component={HeyWorld} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/add" component={AddTrail} />
           <Route exact path="*" component={NotFound} />
         </Switch>
       </Layout>
