@@ -5,7 +5,8 @@ import { Home } from './pages/Home'
 import HelloWorld from './pages/_template/HelloWorld'
 import HeyWorld from './pages/_template/HeyWorld'
 import NotFound from './pages/NotFound'
-import './custom.scss'
+import './custom.css'
+
 export default class App extends Component {
   static displayName = App.name
 

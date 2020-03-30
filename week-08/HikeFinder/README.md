@@ -1,5 +1,11 @@
 # SDG Console template
 
+## Photo Attribution
+
+- Hero : Photo by Ronan Furuta on Unsplash
+
+## Details
+
 This is the template app SDG uses to start off learning C# and .NET
 
 ## What is does
