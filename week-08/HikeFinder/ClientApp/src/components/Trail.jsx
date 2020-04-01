@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
+import TrailAverageRating from './TrailAverageRating'
 
 const Trail = props => {
   const { trail } = props
+
   const [newReviewText, setNewReviewText] = useState('')
   const [reviewScore, setReviewScore] = useState(0)
 
   const sendReviewToApi = async () => {
     const resp = await axios.post(`/api/trails/${trail.id}/reviews`, {
-      rating : reviewScore,
+      rating: reviewScore,
       comment: newReviewText,
     })
     console.log(resp.data)
@@ -26,7 +28,9 @@ const Trail = props => {
         </button>
         <p>{trail.grade}</p>
         <p>{trail.routeType}</p>
-        <p className="reviews"> 4/5 (33 reviews) </p>
+        <p className="reviews">
+          <TrailAverageRating reviews={trail.reviews} />
+        </p>
         <p className="address">
           {trail.address} {trail.city}
         </p>
@@ -57,33 +61,14 @@ const Trail = props => {
         <h2>Reviews</h2>
 
         <ul className="review-list">
-          <li>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum
-              cum voluptatem libero distinctio deserunt? Mollitia eveniet
-              quibusdam consectetur suscipit atque fugiat doloremque illo quas
-              recusandae ratione amet, ipsam facere repudiandae?
-            </p>
-            <p className="review-rating">3/5</p>
-          </li>
-          <li>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum
-              cum voluptatem libero distinctio deserunt? Mollitia eveniet
-              quibusdam consectetur suscipit atque fugiat doloremque illo quas
-              recusandae ratione amet, ipsam facere repudiandae?
-            </p>
-            <p className="review-rating">3/5</p>
-          </li>
-          <li>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum
-              cum voluptatem libero distinctio deserunt? Mollitia eveniet
-              quibusdam consectetur suscipit atque fugiat doloremque illo quas
-              recusandae ratione amet, ipsam facere repudiandae?
-            </p>
-            <p className="review-rating">3/5</p>
-          </li>
+          {trail.reviews.map(review => {
+            return (
+              <li>
+                <p className="review">{review.comment}</p>
+                <p className="review-rating">{review.rating}/5</p>
+              </li>
+            )
+          })}
         </ul>
       </section>
     </main>

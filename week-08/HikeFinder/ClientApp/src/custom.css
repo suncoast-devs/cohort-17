@@ -114,6 +114,10 @@ header>nav.navbar {
   display: flex;
 }
 
+.review-list li .review {
+  width: 75%;
+}
+
 .review-rating {
   font-size: 3rem;
   padding-left: 2rem;
