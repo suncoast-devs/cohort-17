@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace HikeFinder.Models
 {
@@ -11,6 +12,8 @@ namespace HikeFinder.Models
 
     // navigation properties
     public int TrailId { get; set; }
+
+    [JsonIgnore]
     public Trail Trail { get; set; }
   }
 }

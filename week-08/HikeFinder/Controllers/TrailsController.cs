@@ -31,12 +31,24 @@ namespace HikeFinder.Controllers
     [HttpGet("{id}")]
     public async Task<ActionResult<Trail>> GetTrail(int id)
     {
-      var trail = await _context.Trails.FindAsync(id);
+      // trail and the reviews 
+      /* 
+         SELECT * 
+         FROM Trail
+         JOIN Reviews ON Trail.Id = Review.TrailId
+         WHERE Trail.Id = {id}
+      */
+      var trail = await _context
+            .Trails
+            .Include(trl => trl.Reviews)
+            .FirstOrDefaultAsync(f => f.Id == id);
 
       if (trail == null)
       {
         return NotFound();
       }
+
+
 
       return trail;
     }
