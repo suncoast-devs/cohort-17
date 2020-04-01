@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace HikeFinder.Models
 {
@@ -14,5 +15,7 @@ namespace HikeFinder.Models
     public string State { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+    public List<Review> Reviews { get; set; } = new List<Review>();
   }
 }
