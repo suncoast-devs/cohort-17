@@ -65,13 +65,13 @@ main.hero {
   height: 33vh;
 }
 
-header > nav.navbar {
+header>nav.navbar {
   margin-bottom: 0 !important;
 }
 
-.trail-details > section {
+.trail-details>.trail-header {
   display: grid;
-  grid-template-rows: 5rem 3rem 2rem 10rem;
+  grid-template-rows: 5rem 3rem 4rem 2rem 10rem;
   grid-template-columns: 25% 25% 25% 25%;
   padding: 1rem;
 }
@@ -81,14 +81,21 @@ header > nav.navbar {
   grid-column-end: 4;
 }
 
-.trail-details .address {
+.trail-details .reviews {
   grid-row-start: 3;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  font-size: 1.5rem;
+}
+
+.trail-details .address {
+  grid-row-start: 4;
   grid-column-start: 1;
   grid-column-end: 4;
 }
 
 .trail-details .description {
-  grid-row-start: 4;
+  grid-row-start: 5;
 }
 
 .directions-link {
@@ -97,4 +104,18 @@ header > nav.navbar {
   width: 5rem;
   font-size: 3rem;
   color: blue;
+}
+
+.review-list {
+  list-style: none;
+}
+
+.review-list li {
+  display: flex;
+}
+
+.review-rating {
+  font-size: 3rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
 }
