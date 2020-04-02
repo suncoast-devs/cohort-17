@@ -8,7 +8,7 @@ namespace AuthExample.Models
   public partial class DatabaseContext : DbContext
   {
 
-
+    public DbSet<User> Users { get; set; }
 
 
     private string ConvertPostConnectionToConnectionString(string connection)
@@ -23,8 +23,7 @@ namespace AuthExample.Models
       if (!optionsBuilder.IsConfigured)
       {
         var envConn = Environment.GetEnvironmentVariable("DATABASE_URL");
-#error Update this connection string to point to your own database.
-        var conn = "server=localhost;database=AuthExampleDatabase";
+        var conn = "server=localhost;database=AuthExample17Database";
         if (envConn != null)
         {
           conn = ConvertPostConnectionToConnectionString(envConn);
