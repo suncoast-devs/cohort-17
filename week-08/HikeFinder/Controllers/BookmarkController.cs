@@ -13,9 +13,9 @@ namespace HikeFinder.Controllers
   {
 
     [HttpPost("{trailId}")]
-    public async Task<ActionResult> BookmarkTrdotnetailForUser(int trailId)
+    public async Task<ActionResult> BookmarkTrailForUser(int trailId)
     {
-
+      return Ok();
     }
 
   }

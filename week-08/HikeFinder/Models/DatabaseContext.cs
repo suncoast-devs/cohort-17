@@ -13,6 +13,8 @@ namespace HikeFinder.Models
     public DbSet<Review> Reviews { get; set; }
     public DbSet<User> Users { get; set; }
 
+    public DbSet<Bookmark> Bookmarks { get; set; }
+
     private string ConvertPostConnectionToConnectionString(string connection)
     {
       var _connection = connection.Replace("postgres://", String.Empty);
