@@ -12,10 +12,12 @@
 - [x] Configure our StartUp.cs
 - [x] Add Users Table to our Database
 - [x] Create the Sign Up Endpoint
-- [ ] Create the Login Endpoint
+- [x] Create the Login Endpoint
+- [ ] Update the React app to a know about permissions (refine this later)
+  - [ ] Sign up form posting and working
+  - [ ] Store the token somewhere?
+  - [ ] Create a profile page that only a logged user can see
 - [ ] Authorize Tag
-
--[ ] Update the React app to a know about permissions (refine this later)
 
 ## Details
 

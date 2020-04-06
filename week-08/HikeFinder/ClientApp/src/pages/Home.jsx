@@ -11,6 +11,9 @@ export function Home() {
         <Link to="/search" className="call-to-action">
           Find a trail
         </Link>
+        <Link to="/signup" className="call-to-action">
+          Create an Account
+        </Link>
       </main>
     </>
   )

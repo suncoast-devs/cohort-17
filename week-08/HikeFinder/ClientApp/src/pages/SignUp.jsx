@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+import { Redirect } from 'react-router-dom'
+
 const SignUp = () => {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [shouldRedirect, setShouldRedirect] = useState(false)
 
   const sendNewUserToApi = async () => {
     // add extra validation logic here
@@ -14,6 +17,17 @@ const SignUp = () => {
       password: password,
     })
     console.log(resp.data)
+    if (resp.status === 200) {
+      // store the token in session or localstorage
+      localStorage.setItem('token', resp.data.token)
+      // sessionStorage.setItem('session-token', resp.data.token)
+      //????? redirect the user to their profile page
+      setShouldRedirect(true)
+    }
+  }
+
+  if (shouldRedirect) {
+    return <Redirect to="/my-profile" />
   }
 
   return (
