@@ -28,7 +28,7 @@ namespace HikeFinder.Controllers
       var userId = int.Parse(User.Claims.FirstOrDefault(claim => claim.Type == "id").Value);
 
       // query the database for the user with that id
-      var user = await _context.Users.FirstOrDefaultAsync(f => f.Id == userId);
+      var user = await _context.Users.Include(i => i.Bookmarks).ThenInclude(i => i.Trail).FirstOrDefaultAsync(f => f.Id == userId);
       //return that user's profile
 
       return Ok(user);

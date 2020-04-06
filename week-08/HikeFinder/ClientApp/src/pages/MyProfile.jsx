@@ -23,6 +23,15 @@ const MyProfile = () => {
     <div>
       <h1>{profile.fullName}'s Profile</h1>
       <h2>{profile.email}</h2>
+      <section className="user-favorites">
+        {profile.bookmarks && (
+          <ul>
+            {profile.bookmarks.map(bookmark => {
+              return <li>{bookmark.trail.name}</li>
+            })}
+          </ul>
+        )}
+      </section>
     </div>
   )
 }
