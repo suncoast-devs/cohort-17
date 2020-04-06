@@ -11,6 +11,7 @@ namespace HikeFinder.Models
     public DbSet<Trail> Trails { get; set; }
 
     public DbSet<Review> Reviews { get; set; }
+    public DbSet<User> Users { get; set; }
 
     private string ConvertPostConnectionToConnectionString(string connection)
     {
