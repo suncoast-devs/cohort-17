@@ -10,6 +10,7 @@ using HikeFinder.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -82,8 +83,31 @@ namespace HikeFinder.Controllers
       await _context.SaveChangesAsync();
       // Generate the JWT
 
-      user.HashedPassword = null;
       return Ok(new { token = CreateJWT(user), user = user });
+    }
+
+
+    [HttpPost("login")]
+    public async Task<ActionResult> LoginUser(UserLogin loginInfo)
+    {
+      // check if the user exists
+      var user = await _context.Users.FirstOrDefaultAsync(f => f.Email.ToLower() == loginInfo.Email.ToLower());
+      if (user == null)
+      {
+        return BadRequest("User does not exist");
+      }
+      // validate the user's password
+      var results = new PasswordHasher<User>().VerifyHashedPassword(user, user.HashedPassword, loginInfo.Password);
+      if (results == PasswordVerificationResult.Success)
+      {
+        // create JWT
+        return Ok(new { token = CreateJWT(user), user = user });
+
+      }
+      else
+      {
+        return BadRequest("Password does not match");
+      }
     }
 
   }

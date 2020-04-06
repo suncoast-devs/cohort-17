@@ -11,7 +11,7 @@
 
 - [x] Configure our StartUp.cs
 - [x] Add Users Table to our Database
-- [ ] Create the Sign Up Endpoint
+- [x] Create the Sign Up Endpoint
 - [ ] Create the Login Endpoint
 - [ ] Authorize Tag
 
