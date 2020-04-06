@@ -4,6 +4,19 @@
 
 - Hero : Photo by Ronan Furuta on Unsplash
 
+## For Auth
+
+- Signup/Login forms created
+- Set Up API
+
+  - Configure our StartUp.cs
+  - Add Users Table to our Database
+  - Create the Sign Up Endpoint
+  - Create the Login Endpoint
+  - Authorize Tag
+
+  - Update the React app to a know about permissions (refine this later)
+
 ## Details
 
 This is the template app SDG uses to start off learning C# and .NET

@@ -7,6 +7,8 @@ import NotFound from './pages/NotFound'
 import AddTrail from './pages/AddTrail'
 import './custom.css'
 import TrailDetails from './pages/TrailDetails'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
 
 export default class App extends Component {
   static displayName = App.name
@@ -17,6 +19,8 @@ export default class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={SignUp} />
           <Route exact path="/add" component={AddTrail} />
           <Route exact path="/trail/:trailId" component={TrailDetails} />
           <Route exact path="*" component={NotFound} />
