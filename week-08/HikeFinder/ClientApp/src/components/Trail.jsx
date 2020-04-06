@@ -9,6 +9,7 @@ const Trail = props => {
 
   const [newReviewText, setNewReviewText] = useState('')
   const [reviewScore, setReviewScore] = useState(0)
+  const [reviews, setReviews] = useState(trail.reviews)
 
   const sendReviewToApi = async () => {
     const resp = await axios.post(`/api/trails/${trail.id}/reviews`, {
@@ -16,6 +17,8 @@ const Trail = props => {
       comment: newReviewText,
     })
     console.log(resp.data)
+    // update state with  the new data
+    setReviews([resp.data, ...reviews])
   }
 
   const saveTrailForUser = async () => {
@@ -44,7 +47,7 @@ const Trail = props => {
         <p>{trail.grade}</p>
         <p>{trail.routeType}</p>
         <p className="reviews">
-          <TrailAverageRating reviews={trail.reviews} />
+          <TrailAverageRating reviews={reviews} />
         </p>
         <p className="address">
           {trail.address} {trail.city}
@@ -84,7 +87,7 @@ const Trail = props => {
         <h2>Reviews</h2>
 
         <ul className="review-list">
-          {trail.reviews.map(review => {
+          {reviews.map(review => {
             return (
               <li>
                 <p className="review">{review.comment}</p>
