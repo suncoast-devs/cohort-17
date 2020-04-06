@@ -14,10 +14,16 @@
 - [x] Create the Sign Up Endpoint
 - [x] Create the Login Endpoint
 - [ ] Update the React app to a know about permissions (refine this later)
-  - [ ] Sign up form posting and working
-  - [ ] Store the token somewhere?
-  - [ ] Create a profile page that only a logged user can see
-- [ ] Authorize Tag
+  - [x] Sign up form posting and working
+  - [x] Store the token somewhere?
+  - [x] Create a profile page that only a logged user can see
+- [x] Authorize Tag
+
+## For User Favorites
+
+- [ ] A button for a user to favorite a trail
+- [ ] Store that user favorited Trail
+- [ ] Display all the user's trails
 
 ## Details
 

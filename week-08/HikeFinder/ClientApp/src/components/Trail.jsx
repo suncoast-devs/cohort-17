@@ -18,6 +18,21 @@ const Trail = props => {
     console.log(resp.data)
   }
 
+  const saveTrailForUser = async () => {
+    // tell our API 2 things,
+    // Who is bookmarking the trail
+    // what trail are we bookmarking
+    const resp = await axios.post(
+      `/api/bookmark/${trail.id}`,
+      {},
+      {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      }
+    )
+  }
+
   return (
     <main className="trail-details">
       <img src="https://placekitten.com/600/400" alt={trail.name} />
@@ -36,6 +51,14 @@ const Trail = props => {
         </p>
         <p className="description">{trail.description}</p>
       </section>
+      {localStorage.getItem('token') ? (
+        <section>
+          Like this trail?
+          <button onClick={saveTrailForUser}>bookmark for later</button>
+        </section>
+      ) : (
+        <></>
+      )}
       <section>
         <h2>Been there?</h2>
         <textarea
