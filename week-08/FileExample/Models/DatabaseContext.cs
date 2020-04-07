@@ -23,8 +23,7 @@ namespace FileExample.Models
       if (!optionsBuilder.IsConfigured)
       {
         var envConn = Environment.GetEnvironmentVariable("DATABASE_URL");
-#error Update this connection string to point to your own database.
-        var conn = "server=localhost;database=FileExampleDatabase";
+        var conn = "server=localhost;database=FileExample17Database";
         if (envConn != null)
         {
           conn = ConvertPostConnectionToConnectionString(envConn);

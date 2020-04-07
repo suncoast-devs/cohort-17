@@ -38,7 +38,7 @@ export class NavMenu extends Component {
         >
           <Container>
             <NavbarBrand tag={Link} to="/">
-              FileExample
+              File Example
             </NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse
@@ -46,23 +46,7 @@ export class NavMenu extends Component {
               isOpen={!this.state.collapsed}
               navbar
             >
-              <ul className="navbar-nav flex-grow">
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/">
-                    Home
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/counter">
-                    Counter
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/typescript">
-                    Typescript
-                  </NavLink>
-                </NavItem>
-              </ul>
+              <ul className="navbar-nav flex-grow"></ul>
             </Collapse>
           </Container>
         </Navbar>
