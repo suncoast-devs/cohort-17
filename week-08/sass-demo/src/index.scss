@@ -1,0 +1,50 @@
+@import './_variables.scss';
+
+:root {
+  font: 16px / 1 sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+// extend
+
+body {
+  @extend .center-context;
+  margin: 0;
+  min-height: 100%;
+}
+
+// .image-card img {
+// }
+
+// .image-card h3 {
+//   color: purple;
+// }
+
+.button {
+  padding: 3rem;
+  margin: 1rem;
+  border-radius: 50px;
+  font-size: $normal-font;
+  &:hover {
+  }
+}
+
+.submit-button {
+  @extend .button;
+  color: yellow;
+}
+.delete-button {
+  @extend .button;
+  color: $primary-color;
+}
+.update-button {
+  @extend .button;
+  color: green;
+}
+.create-button {
+  @extend .button;
+  color: aqua;
+}

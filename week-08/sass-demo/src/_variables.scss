@@ -1,0 +1,15 @@
+// variables
+$primary-color: violet;
+$header-color: rgb(90, 65, 65);
+$button-color: $primary-color;
+$link-color: rgb(166, 230, 166);
+
+$large-font: 3rem;
+$normal-font: 1.5rem;
+$small-font: 1rem;
+
+.center-context {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

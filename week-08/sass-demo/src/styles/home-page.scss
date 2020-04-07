@@ -1,0 +1,30 @@
+@import '../variables';
+
+.home-page {
+  h1 {
+    color: $primary-color;
+    font-size: $large-font;
+  }
+  h2 {
+    color: blue;
+    border: 3px dashed $primary-color;
+  }
+  p {
+    color: yellow;
+    background-color: $primary-color;
+  }
+  // nesting
+
+  .image-card {
+    @extend .center-context;
+    flex-direction: column;
+    padding: 1rem;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    h3 {
+      color: purple;
+    }
+  }
+}
