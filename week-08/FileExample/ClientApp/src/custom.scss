@@ -12,3 +12,28 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.image-tile img {
+  width: 100%;
+  height: auto;
+}
+
+.image-tile time {
+  text-align: center;
+  font-size: 1.5rem;
+  color: blueviolet;
+  margin: 1rem;
+}
+
+.image-tile {
+  margin: 1rem;
+  padding: 1rem;
+  border: 0.1rem solid orange;
+  background-color: lightgrey;
+}
