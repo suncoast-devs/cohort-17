@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 
 export function Home() {
+  const [uploadedImageUrl, setUploadedImageUrl] = useState('')
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
     console.log(acceptedFiles)
@@ -18,6 +19,7 @@ export function Home() {
       })
       .then(resp => {
         console.log(resp.data)
+        setUploadedImageUrl(resp.data.secureUri)
       })
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
@@ -33,6 +35,7 @@ export function Home() {
           <p>Drag 'n' drop some files here, or click to select files</p>
         )}
       </div>
+      {uploadedImageUrl && <img src={uploadedImageUrl} />}
     </div>
   )
 }
