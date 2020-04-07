@@ -9,7 +9,7 @@ namespace FileExample.Models
   {
 
 
-
+    public DbSet<UploadedImage> UploadImages { get; set; }
 
     private string ConvertPostConnectionToConnectionString(string connection)
     {
