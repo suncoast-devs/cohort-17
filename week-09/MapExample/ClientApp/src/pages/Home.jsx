@@ -1,19 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import axios from 'axios'
+import { usePosition } from 'use-position'
 
 export function Home() {
+  const { latitude, longitude, timestamp, accuracy, error } = usePosition(
+    true,
+    { enableHighAccuracy: true }
+  )
+
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
-    latitude: 27.7676,
-    longitude: -82.6403,
+    width: 800,
+    height: 800,
+    latitude: latitude,
+    longitude: longitude,
     zoom: 8,
   })
+
+  useEffect(() => {
+    setViewport(prev => {
+      return {
+        ...prev,
+        latitude: latitude,
+        longitude: longitude,
+      }
+    })
+  }, [latitude, longitude])
+
   const [showPopup, setShowPopup] = useState(false)
   const [selectedPlace, setSelectedPlace] = useState({})
   const [markers, setMarkers] = useState([])
-
+  const [locationAddress, setLocationAddress] = useState('')
   const loadAllLocations = async () => {
     const resp = await axios.get('/api/location')
     setMarkers(resp.data)
@@ -29,9 +46,31 @@ export function Home() {
     setShowPopup(true)
   }
 
+  const addNewLocation = async () => {
+    // do the API
+    const resp = await axios.post('/api/location', {
+      description: 'from UI',
+      fullAddress: locationAddress,
+    })
+    if (resp.status === 201) {
+      // update the markers array
+      setMarkers(prevMarkers => {
+        return [resp.data, ...prevMarkers]
+      })
+    }
+  }
+
   return (
     <div>
-      <button onClick={() => setShowPopup(true)}>show popup</button>
+      <section>
+        <input
+          type="text"
+          placeholder="Full address..."
+          value={locationAddress}
+          onChange={e => setLocationAddress(e.target.value)}
+        />
+        <button onClick={addNewLocation}>Add New Locaton</button>
+      </section>
       <section className="map-container">
         <ReactMapGL
           {...viewport}
