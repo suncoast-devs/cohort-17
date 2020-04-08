@@ -1,11 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
-
-const data = [
-  { latitude: 27.9676, longitude: -82.3403, text: 'A' },
-  { latitude: 27.4676, longitude: -82.8403, text: 'B' },
-  { latitude: 26.7676, longitude: -83.6403, text: 'C' },
-]
+import axios from 'axios'
 
 export function Home() {
   const [viewport, setViewport] = useState({
@@ -17,6 +12,16 @@ export function Home() {
   })
   const [showPopup, setShowPopup] = useState(false)
   const [selectedPlace, setSelectedPlace] = useState({})
+  const [markers, setMarkers] = useState([])
+
+  const loadAllLocations = async () => {
+    const resp = await axios.get('/api/location')
+    setMarkers(resp.data)
+  }
+
+  useEffect(() => {
+    loadAllLocations()
+  }, [])
 
   const markerClicked = place => {
     console.log('marker clcked', place)
@@ -44,25 +49,17 @@ export function Home() {
               onClose={() => setShowPopup(false)}
               offsetTop={-5}
             >
-              <div className="popup-window"> 💜 {selectedPlace.text}</div>
+              <div className="popup-window">🌧 {selectedPlace.description}</div>
             </Popup>
           )}
-          <Marker
-            latitude={27.7676}
-            longitude={-82.6403}
-            offsetLeft={-20}
-            offsetTop={-10}
-          >
-            <div>📍</div>
-          </Marker>
-          {data.map(place => {
+          {markers.map(place => {
             return (
               <Marker
                 latitude={place.latitude}
                 longitude={place.longitude}
-                key={place.text}
+                key={place.id}
               >
-                <div onClick={() => markerClicked(place)}>{place.text}</div>
+                <div onClick={() => markerClicked(place)}>🌂</div>
               </Marker>
             )
           })}
