@@ -8,7 +8,7 @@ namespace MapExample.Models
   public partial class DatabaseContext : DbContext
   {
 
-
+    public DbSet<PointOfInterest> PointOfInterests { get; set; }
 
 
     private string ConvertPostConnectionToConnectionString(string connection)
