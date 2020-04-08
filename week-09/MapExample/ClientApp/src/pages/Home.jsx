@@ -36,9 +36,7 @@ export function Home() {
         <ReactMapGL
           {...viewport}
           onViewportChange={setViewport}
-          mapboxApiAccessToken={
-            'pk.eyJ1IjoiZGV3c2VwaCIsImEiOiJjanRrNzQwYTYwMHdjM3lwNnh2am05ejc0In0._LCOTuYCw-eRKDvUut2TxQ'
-          }
+          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
         >
           {showPopup && (
             <Popup

@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MapExample.Models;
-
-
+using System.Net.Http;
+using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace MapExample.Controllers
 {
@@ -16,10 +17,12 @@ namespace MapExample.Controllers
   public class LocationController : ControllerBase
   {
     private readonly DatabaseContext _context;
+    private readonly string _MAPBOX_TOKEN;
 
-    public LocationController(DatabaseContext context)
+    public LocationController(DatabaseContext context, IConfiguration config)
     {
       _context = context;
+      this._MAPBOX_TOKEN = config["mapbox-token"];
     }
 
     // GET: api/Location
@@ -81,6 +84,21 @@ namespace MapExample.Controllers
     [HttpPost]
     public async Task<ActionResult<PointOfInterest>> PostPointOfInterest(PointOfInterest pointOfInterest)
     {
+
+      var client = new HttpClient();
+      var resp = await client.GetAsync($"https://api.mapbox.com/geocoding/v5/mapbox.places/{pointOfInterest.FullAddress}.json?access_token={this._MAPBOX_TOKEN}");
+
+      var json = await JsonDocument.ParseAsync(await resp.Content.ReadAsStreamAsync());
+      var root = json.RootElement;
+      var feature = root.GetProperty("features").EnumerateArray().First();
+      var center = feature.GetProperty("center").EnumerateArray();
+      var lng = center.First();
+      var lat = center.Skip(1).First();
+
+      Console.WriteLine($"{lat},{lng}");
+      pointOfInterest.Latitude = lat.GetDouble();
+      pointOfInterest.Longitude = lng.GetDouble();
+
 
 
       _context.PointOfInterests.Add(pointOfInterest);
