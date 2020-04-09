@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 import { Redirect } from 'react-router-dom'
+import { useUserProfile } from '../components/UserProfileContext'
 
 const Login = () => {
   const [logInEmail, setLogInEmail] = useState('')
   const [logInPassword, setLogInPassword] = useState('')
   const [shouldRedirect, setShouldRedirect] = useState(false)
+
+  const { reloadUser } = useUserProfile()
 
   const logUserIntoApi = async () => {
     const resp = await axios.post('/auth/login', {
@@ -16,6 +19,7 @@ const Login = () => {
     if (resp.status === 200) {
       console.log(resp.data)
       localStorage.setItem('token', resp.data.token)
+      reloadUser()
       setShouldRedirect(true)
     }
   }

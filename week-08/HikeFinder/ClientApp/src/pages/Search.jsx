@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import EmptyTrailList from '../components/EmptyTrailList'
 import TrailList from '../components/TrailList'
+
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [results, setResults] = useState([])
