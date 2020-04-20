@@ -10,6 +10,8 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using HikeFinder.Services;
+using HikeFinder.Interfaces;
 
 namespace HikeFinder
 {
@@ -39,6 +41,7 @@ namespace HikeFinder
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
   });
       services.AddDbContext<DatabaseContext>();
+      services.AddSingleton<IUserService, UserService>();
 
       services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
           {

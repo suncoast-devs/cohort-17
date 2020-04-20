@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HikeFinder.Interfaces;
 using HikeFinder.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -17,11 +18,12 @@ namespace HikeFinder.Controllers
   {
 
     private readonly DatabaseContext _context;
+    private readonly IUserService _userService;
 
-
-    public BookmarkController(DatabaseContext context)
+    public BookmarkController(DatabaseContext context, IUserService userService)
     {
       _context = context;
+      _userService = userService;
     }
 
 
@@ -29,7 +31,7 @@ namespace HikeFinder.Controllers
     public async Task<ActionResult> BookmarkTrailForUser(int trailId)
     {
       // get the user Id form the User Object
-      var userId = int.Parse(User.Claims.FirstOrDefault(f => f.Type == "id").Value);
+      var userId = _userService.GetCurrentUserId(User);
 
       // create a new bookmark 
       var bookmark = new Bookmark
